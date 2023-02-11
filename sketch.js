@@ -21,8 +21,8 @@ let buddhaDiam;
 
 function setup() {
   //buddha wall
-  for (let i=0; i<8; i++) {
-      for(let j=0; j<5;j++){
+  for (let i=0; i<width; i++) {
+      for(let j=0; j<height;j++){
         
     let w = new BuddhaWall(250*(i), 220*(j));
     
@@ -30,7 +30,8 @@ function setup() {
       }
   }
 
-  canvas = createCanvas(800, 450);
+  //canvas = createCanvas(800, 450);
+  canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("sketch-container"); //move our canvas inside this HTML element
 
   buddhaX = width/2;
@@ -50,10 +51,11 @@ function draw() {
   //buddha light
   
   push();
+
   fill(255,10);
   
-  for(let o=0; o<800; o=o+100){
-    for(let u=0; u<500; u=u+90){
+  for(let o=0; o<width; o=o+100){
+    for(let u=0; u<height; u=u+90){
       circle(52+o, 47+u, buddhaDiam);
     }
   }
@@ -84,7 +86,7 @@ function draw() {
   scale((1/5)*2);
   
   LinearGradient(0, 0,//start point 300
-                 width, 1200, //end point
+                 width, height, //end point
                  color(216,7,191), //start color
                  color(0,0,251));//end color
   
@@ -94,6 +96,10 @@ function draw() {
   }
   pop();
 
+}
+
+function windowResized() {//Responsive design
+  resizeCanvas(windowWidth, windowHeight);
 }
 
 function takeIncense(){

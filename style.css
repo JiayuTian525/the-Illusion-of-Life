@@ -30,7 +30,7 @@ main{
  .button{
   background-color: #371bd3;
   border: solid 1px #371bd3;
-  border-radius: 100px;
+  border-radius: 50px;
   color: white;
   padding: 15px 20px;
   text-align: center;
@@ -40,6 +40,9 @@ main{
   font-size: 16px;
   min-width: 200px;
   cursor: pointer;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 } 
 
 
@@ -53,7 +56,13 @@ main{
 
 /*add inactive state styling*/
 .inactive{
-  background-color:black;
-  
+  background-color:black;  
   
 }
+
+@media screen and (max-width: 600px) {
+  .button {
+    margin:0 auto;
+    color: black;
+  }
+ }
